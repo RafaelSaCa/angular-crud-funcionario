@@ -1,0 +1,16 @@
+<mat-card *ngIf="funcionario">
+  <mat-card-header>
+    <mat-card-title><h1>Deseja realmente excluir?</h1> </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <h2>Funcionario:</h2>
+    <p>{{ funcionario.nome }} {{ funcionario.sobrenome }}</p>
+
+    <h2>Departamento</h2>
+    <p>{{ funcionario.departamento }}</p>
+  </mat-card-content>
+</mat-card>
+<div class="btn">
+  <button mat-raised-button color="warn" (click)="excluir()">Excluir</button>
+  <button mat-raised-button color="basic" (click)="cancelar()">Cancelar</button>
+</div>
