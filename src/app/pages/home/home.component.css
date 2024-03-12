@@ -1,0 +1,9 @@
+.funcionario-box{
+  width: 100%;
+  gap: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content:  start;
+  align-items: left;
+
+}
