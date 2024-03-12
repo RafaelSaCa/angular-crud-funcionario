@@ -1,0 +1,52 @@
+<mat-card>
+  <h1>{{ btnTitulo }}</h1>
+  <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id" />
+
+    <div class="input_box">
+      <mat-form-field>
+        <mat-label for="">Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Nome" required />
+      </mat-form-field>
+    </div>
+
+    <div class="input_box"></div>
+    <mat-form-field>
+      <mat-label for="">Sobrenome</mat-label>
+      <input
+        matInput
+        formControlName="sobrenome"
+        placeholder="Sobrenome"
+        required/>
+    </mat-form-field>
+
+      <div class="input_box">
+      <mat-form-field>
+        <mat-label for="">Departamento</mat-label>
+        <mat-select id="departamento" formControlName="departamento" required>
+          <mat-option value="Atendimento">Atendimento</mat-option>
+          <mat-option value="Compras">Compras</mat-option>
+          <mat-option value="Financeiro">Financeiro</mat-option>
+          <mat-option value="RH">RH</mat-option>
+          <mat-option value="Zeladoria">Zeladoria</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="input_box">
+      <mat-form-field>
+      <mat-label for="">Turno</mat-label>
+      <mat-select id="turno" formControlName="turno" required>
+        <mat-option value="Manha">Manhã</mat-option>
+        <mat-option value="Tarde">Tarde</mat-option>
+        <mat-option value="Noite">Noite</mat-option>
+      </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="btn-box">
+      <button mat-raised-button color="primary" type="submit"[disabled]="!funcionarioForm.valid">{{ btnAcao }}</button>
+      <button mat-raised-button color="warn" routerLink=''>Cancelar</button>
+    </div>
+  </form>
+</mat-card>
