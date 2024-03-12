@@ -1,0 +1,77 @@
+<mat-card class="detalhes">
+<div>
+  <h1>Dados do Funcionário</h1>
+</div>
+
+<div *ngIf="funcionario">
+  <form>
+
+    <div class="input_box">
+      <mat-form-field>
+      <mat-label for="">Nome:</mat-label>
+      <input matInput type="text" value="{{ funcionario.nome }}" disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="input_box">
+      <mat-form-field>
+      <mat-label>Sobrenome:</mat-label>
+      <input matInput value="{{ funcionario.sobrenome }}" disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="input_box">
+    <mat-form-field>
+      <mat-label>Departamento:</mat-label>
+      <input matInput type="text" value="{{ funcionario.departamento }}" disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="input_box">
+    <mat-form-field>
+      <mat-label>Turno:</mat-label>
+      <input matInput value="{{ funcionario.turno }}" disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="input_box">
+    <mat-form-field>
+      <mat-label>Status:</mat-label>
+      <input matInput
+        value="{{ funcionario.ativo == true ? 'Ativo' : 'Inativo' }}"
+        disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="input_box">
+      <mat-form-field>
+      <mat-label>Data de Criação:</mat-label>
+      <input matInput value="{{ funcionario.dataCriacao }}" disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="input-box">
+      <mat-form-field>
+      <mat-label>Data de Alteração:</mat-label>
+      <input matInput value="{{ funcionario.dataAlteracao }}" disabled />
+    </mat-form-field>
+    </div>
+
+    <div class="btn-box">
+       <div *ngIf="funcionario.ativo == true; else inativo">
+        <div class="btn-box">
+        <button mat-raised-button color="warn" (click)="InativaFuncionario()">Inativar</button>
+        <button mat-raised-button routerLink="">Voltar</button>
+      </div>
+      </div>
+
+      <ng-template #inativo>
+        <button mat-raised-button color="primary" (click)="AtivaFuncionario()">Ativar</button>
+        <button mat-raised-button routerLink="">Voltar</button>
+      </ng-template>
+
+    </div>
+
+  </form>
+</div>
+</mat-card>
